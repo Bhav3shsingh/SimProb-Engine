@@ -5,7 +5,7 @@ import java.io.*;
 public class ProbEngine
 {
 
-private String base_data = "";
+public String base_data = "";
                      
     private String[] data;
     private double[] plist;	
