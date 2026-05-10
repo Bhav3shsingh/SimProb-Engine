@@ -31,6 +31,11 @@ The most complex part of the engine is the grammatical correction layer. It func
 *   **Subject-Verb Agreement**: Dynamically corrects helping verbs based on the subject (e.g., forcing "I am" instead of "I is").
 *   **Tense Enforcement**: Automatically manages `-ing` and `-ed` suffixes based on the presence of specific auxiliary verbs.
 
+### 4. Integration Logic: SentenceMaker
+
+The `SentenceMaker` acts as the system's orchestration layer, bridging the gap between raw data and readable output. It first calls the **Probabilistic Engine** to generate a "raw thought" by sampling high-probability lexemes from the dataset. Once a raw string is formed, it is passed into the **Grammar Engine**, which acts as a heuristic filter. The Grammar Engine analyzes the sentence structure (indices 0, 1, and 2) to enforce subject-verb agreement and morphological conjugation in real-time. This modular hand-off ensures that the "Brain" (ProbEngine) can focus on context and meaning, while the "Skeleton" (GrammarEngine) independently ensures syntactic stability before the final string is returned.
+
+
 ## 🛠️ Tech Stack
 *   **Language:** Java (OpenJDK)
 *   **I/O:** Classic `java.io` (BufferedReader, File) for efficient stream handling.
