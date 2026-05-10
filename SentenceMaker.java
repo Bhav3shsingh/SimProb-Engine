@@ -18,9 +18,14 @@ public class SentenceMaker
     String sent = "";
     int sento = 0;
 
-	GrammarEngine grm = new GrammarEngine();
-    ProbEngine pen = new ProbEngine();
-    
+	GrammarEngine grm;
+    ProbEngine pen;
+
+	
+    SentenceMaker(){
+	pen = new ProbEngine();
+	grm= new GrammarEngine(pen.base_data);
+}
 
     public String sengen()
     {
@@ -109,7 +114,7 @@ public class SentenceMaker
         return "!";
     }
     
-    
+   
     
     
     
